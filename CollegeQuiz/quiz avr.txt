@@ -1,0 +1,81 @@
+/*
+ * quiz.c
+ *
+ * Created: 05-10-2017 07:24:23
+ * Author : Bakhshish Singh
+ */ 
+
+#include <avr/io.h>
+
+int main(void)
+{
+	
+		DDRD = 0x00;
+		DDRB = 0x00;
+		DDRC = 0x00;
+	
+	while(1)
+	{
+		rep:
+		PORTD=0xff;
+		PORTB=0xff;
+		PORTC=0xff;
+		while(PIND == 0xff);
+		switch(PIND)
+		{
+			case 0xfe:
+			{
+				PORTC=0xfe;
+				break;
+			}
+			
+			case 0xfd:
+			{
+				PORTC=0xfd;
+				break;
+			}
+			
+			case 0xfb:
+			{
+				PORTC=0xfb;
+				break;
+			}
+			
+			case 0xf7:
+			{
+				PORTC=0xf7;
+				break;
+			}
+			
+			case 0xef:
+			{
+				PORTC=0xef;
+				break;
+			}
+			
+			case 0xdf:
+			{
+				PORTC=0xdf;
+				break;
+			}
+
+			case 0xbf:
+			{
+				PORTC=0xbf;
+				break;
+			}
+			
+			case 0x7f:
+			{
+				PORTC=0x7f;
+				break;
+			}
+			default:
+			{
+				goto rep;
+			}
+		}
+		while(PINB==0xff);
+	}
+}
+
